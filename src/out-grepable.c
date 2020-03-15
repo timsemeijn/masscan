@@ -141,7 +141,7 @@ grepable_out_status(struct Output *out, FILE *fp, time_t timestamp,
     int status, unsigned ip, unsigned ip_proto, unsigned port, unsigned reason, unsigned ttl)
 {
     const char *service;
-    UNUSEDPARM(timestamp);
+/***    UNUSEDPARM(timestamp); ***/
     UNUSEDPARM(out);
     UNUSEDPARM(reason);
     UNUSEDPARM(ttl);
@@ -187,11 +187,13 @@ grepable_out_banner(struct Output *out, FILE *fp, time_t timestamp,
     char banner_buffer[4096];
 
     UNUSEDPARM(ttl);
-    UNUSEDPARM(timestamp);
+/***    UNUSEDPARM(timestamp); ***/
     UNUSEDPARM(out);
     UNUSEDPARM(ip_proto);
     
-    fprintf(fp, "Host: %u.%u.%u.%u ()",
+    fprintf(fp, "Timestamp: %lu", timestamp);
+
+    fprintf(fp, "\tHost: %u.%u.%u.%u ()",
                     (unsigned char)(ip>>24),
                     (unsigned char)(ip>>16),
                     (unsigned char)(ip>> 8),
